@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<livraria.Models.Livro>
+
+    <h2>Livraria</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <div class="pull-left">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <span title="Incluir Livro" class="fas fa-plus">Incluir Livro</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="panel panel-default">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Título)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Título)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn-warning btn">
+                                <span class="fas fa-edit">Editar</span>
+                            </a>
+
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Detele" class="btn-danger btn">
+                                <span class="fas fa-trash-alt">Delete</span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
